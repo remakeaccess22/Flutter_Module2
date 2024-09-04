@@ -32,7 +32,7 @@ buildStar(int rating, int numreviews) => Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         for (int i = 1; i <= rating; i++)
-          const Icon(Icons.star, color: Colors.yellow, size: 24),
+          const Icon(Icons.star, color: Colors.green, size: 24),
         for (int i = 1; i <= (5 - rating); i++)
           const Icon(Icons.star, size: 24),
         const SizedBox(
@@ -67,7 +67,7 @@ buildIconTab(iconval, title, time) => Column(
     );
 
 buildRowTabs() => Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         buildIconTab(Icons.kitchen, 'PREP', '25 min'),
         const SizedBox(
@@ -91,7 +91,22 @@ class Page78 extends StatelessWidget {
         title: const Text('Page 78'),
       ),
       body: Center(
-        child: buildColumn(),
+        child: ListView(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            buildColumn(),
+            const SizedBox(
+              height: 20,
+            ),
+            buildStar(2, 90),
+            const SizedBox(
+              height: 20,
+            ),
+            buildRowTabs(),
+          ],
+        ),
       ),
     );
   }
